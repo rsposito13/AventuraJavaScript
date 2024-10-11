@@ -1,14 +1,12 @@
-// Definindo o personagem Lulu Cabeção e suas características iniciais
 let lulu = {
     vida: 100,
     forca: 50,
     recursos: 30,
-    distancia: 400, // Distância de Salinas até Belo Horizonte
+    distancia: 400,
 };
 
-// Função que exibe o status atual do jogador
 function exibirStatus() {
-    console.clear(); // Limpa o console a cada atualização
+    console.clear();
     const status = `
     --- Status de Lulu Cabeção ---
     Vida: ${lulu.vida}
@@ -24,11 +22,9 @@ function exibirStatus() {
     5 - Desistir
     `;
 
-    // Exibe o status e opções no alert
     alert(status);
 }
 
-// Função que gera um desafio aleatório
 function desafio() {
     const desafios = [
         { descricao: "Você encontrou um bando da União Sinistra! Teve que lutar!", vida: -20, forca: -10, recursos: -5 },
@@ -41,46 +37,41 @@ function desafio() {
     const desafioEscolhido = desafios[Math.floor(Math.random() * desafios.length)];
     alert(desafioEscolhido.descricao);
     
-    // Atualizando as características de Lulu
     lulu.vida += desafioEscolhido.vida;
     lulu.forca += desafioEscolhido.forca;
     lulu.recursos += desafioEscolhido.recursos;
 
-    // Atualizando a distância
-    lulu.distancia -= 50; // Reduz a distância em 50 km após o desafio
+    lulu.distancia -= 50; 
 }
 
-// Função para recuperar recursos
 function recuperarRecursos() {
     if (lulu.recursos > 0) {
-        lulu.recursos -= 10; // Perde 10 recursos
-        lulu.vida += 20; // Recupera 20 de vida
+        lulu.recursos -= 10; 
+        lulu.vida += 20; 
         alert("Você recuperou um pouco de vida!");
     } else {
         alert("Você não tem recursos suficientes para recuperar vida!");
     }
 }
 
-// Função para descansar
 function descansar() {
-    lulu.vida += 10; // Recupera 10 de vida
+    lulu.vida += 10;
     alert("Você descansou e recuperou parte da sua saúde!");
 }
 
-// Função para usar recursos
+
 function usarRecursos() {
     if (lulu.recursos > 0) {
-        lulu.recursos -= 5; // Perde 5 recursos
-        lulu.vida += 10; // Recupera 10 de vida
+        lulu.recursos -= 5; 
+        lulu.vida += 10;
         alert("Você usou um recurso e se sentiu melhor!");
     } else {
         alert("Você não tem recursos suficientes!");
     }
 }
 
-// Função que simula a luta contra a Galocura
 function lutarContraGalocura() {
-    const resultado = Math.random(); // Gera um número aleatório entre 0 e 1
+    const resultado = Math.random();
     if (resultado < 0.5) {
         alert("Você lutou bravamente, mas foi derrotado pela Galocura. Fim de jogo!");
     } else {
@@ -88,55 +79,50 @@ function lutarContraGalocura() {
     }
 }
 
-// Função que inicia o jogo
 function start() {
-    alert("Bem-vindo ao jogo da jornada de Lulu Cabeção!\n" +
+    alert("Bem-vindo ao jogo da Jornada para salvar sua amada!\n" +
           "Você deve resgatar Lívia, que foi capturada pela torcida Galocura.\n" +
           "Prepare-se para enfrentar desafios e tomar decisões!\n" +
           "Boa sorte!");
-    exibirStatus(); // Exibe o status inicial de Lulu
+    exibirStatus(); 
     jogarRodada(prompt("Escolha uma ação:\n1 - Seguir em frente\n2 - Recuperar recursos\n3 - Descansar\n4 - Usar recurso\n5 - Desistir"));
 }
 
-// Função principal do jogo para jogar uma rodada
 function jogarRodada(acao) {
-    if (acao === "1") { // Seguir em frente
+    if (acao === "1") { 
         if (lulu.vida > 0 && lulu.distancia > 0) {
             desafio();
             exibirStatus();
 
-            // Checar se Lulu está vivo
             if (lulu.vida <= 0) {
                 alert("Lulu Cabeção foi derrotado pela União Sinistra. Fim de jogo!");
                 return;
             }
 
-            // Checar se Lulu chegou a Belo Horizonte
             if (lulu.distancia <= 0) {
                 alert("Você chegou a Belo Horizonte!");
-                lutarContraGalocura(); // Luta com a Galocura
+                lutarContraGalocura(); 
                 return;
             }
         } else if (lulu.vida <= 0) {
             alert("Você não pode continuar. Lulu está sem vida!");
         }
-    } else if (acao === "2") { // Recuperar recursos
+    } else if (acao === "2") { 
         recuperarRecursos();
         exibirStatus();
-    } else if (acao === "3") { // Descansar
+    } else if (acao === "3") { 
         descansar();
         exibirStatus();
-    } else if (acao === "4") { // Usar recursos
+    } else if (acao === "4") { 
         usarRecursos();
         exibirStatus();
-    } else if (acao === "5") { // Desistir
+    } else if (acao === "5") { 
         alert("Você desistiu da jornada. Fim de jogo!");
-        return; // Encerrando o jogo
+        return; 
     } else {
         alert("Opção inválida! Tente novamente.");
     }
 
-    // Repetindo a rodada se o jogo não acabou
     if (lulu.vida > 0 && lulu.distancia > 0) {
         jogarRodada(prompt("Escolha uma ação:\n1 - Seguir em frente\n2 - Recuperar recursos\n3 - Descansar\n4 - Usar recurso\n5 - Desistir"));
     }

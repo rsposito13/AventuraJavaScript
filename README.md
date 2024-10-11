@@ -1,12 +1,12 @@
-Lulu Cabeção - Jogo de Rodadas
+Lulu  - Jogo de Rodadas
 
 Descrição do Jogo
 
-Neste jogo de rodadas, você controla **Lulu Cabeção**, um personagem que enfrenta desafios inesperados a cada turno. Suas características como *vida*, *força* e *recursos* são afetadas por esses desafios. O objetivo é chegar ao fim das rodadas **vivo**.
+Neste jogo de rodadas, você controla **Lulu**, um personagem que enfrenta desafios inesperados a cada turno. Suas características como *vida*, *força* e *recursos* são afetadas por esses desafios. O objetivo é chegar ao fim das rodadas **vivo**.
 
 Regras
 
-- Lulu Cabeção começa com um valor inicial de **vida**, **força**, e **recursos**.
+- Lulu começa com um valor inicial de **vida**, **força**, e **recursos**.
 - A cada rodada, você enfrentará um desafio que pode reduzir ou aumentar essas características.
 - Você vence o jogo se conseguir chegar ao final das rodadas com Lulu ainda vivo.
 - Caso a vida de Lulu chegue a 0, o jogo termina.
